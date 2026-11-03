@@ -1,0 +1,17 @@
+---
+const { project, index = '01' } = Astro.props;
+---
+<a class={`project-card ${project.theme}`} href={`/projects/${project.slug}/`}>
+  <div class="project-art" aria-hidden="true">
+    <div class="art-index">{index} / PROJECT</div>
+    {project.visual === 'board' && <div class="board-art"><div class="chip">RPi<br/>5</div><i></i><i></i><i></i><b></b><b></b></div>}
+    {project.visual === 'robot' && <div class="robot-art"><div class="robot-body"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="sensor-line"></div><span>FIELD / AUTONOMY</span></div>}
+    {project.visual === 'circuit' && <div class="circuit-art"><div class="circuit-chip"></div><i></i><i></i><i></i><i></i><span>EMBEDDED SYSTEMS</span></div>}
+    {project.visual === 'sensors' && <div class="sensor-art"><div class="sensor-node n1">01</div><div class="sensor-node n2">02</div><div class="sensor-node n3">03</div><div class="sensor-hub">MQTT<br/>HUB</div><span class="sensor-wire"></span></div>}
+    <span class="art-arrow">↗</span>
+  </div>
+  <div class="project-card-meta"><span>{project.company}</span><span>{project.year}</span></div>
+  <h3>{project.title}</h3>
+  <p>{project.summary}</p>
+  <div class="tag-row">{project.technologies.slice(0, 3).map((tag) => <span>{tag}</span>)}</div>
+</a>

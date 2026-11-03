@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+---
+<BaseLayout title="Projects" description="Selected engineering projects across embedded electronics, robotics and IoT.">
+  <section class="page-hero"><div class="section-kicker">PORTFOLIO / 02</div><h1>Selected<br/><em>projects.</em></h1><p>A selection of engineering work spanning embedded hardware, robotics, electronics and personal experimentation.</p></section>
+  <section class="section-block projects-page"><div class="project-grid">{projects.map((project, i) => <ProjectCard project={project} index={String(i + 1).padStart(2, '0')} />)}</div></section>
+  <p class="content-note">Project descriptions are being refined. Some work was completed for employers and will only be expanded with information and imagery that is appropriate to share publicly.</p>
+</BaseLayout>
