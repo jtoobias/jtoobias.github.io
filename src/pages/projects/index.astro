@@ -6,7 +6,7 @@ const disciplines = [...new Set(projects.flatMap((p) => p.disciplines))].sort();
 const employers = [...new Set(projects.map((p) => p.company))];
 ---
 <BaseLayout title="Projects" description="Selected engineering projects across embedded electronics, robotics and IoT.">
-  <section class="page-hero"><div class="section-kicker">PORTFOLIO</div><h1>Selected<br/><em>projects.</em></h1><p>Engineering work across embedded hardware, robotics, electronics and personal projects. Filter by discipline or employer.</p></section>
+  <section class="page-hero"><div class="section-kicker">PORTFOLIO</div><h1>Projects</h1><p>Engineering work across embedded hardware, robotics, electronics and personal projects. Filter by discipline or employer.</p></section>
   <section class="section-block projects-page">
     <div class="filters" role="group" aria-label="Filter projects">
       <div class="filter-group" data-group="discipline"><span class="filter-label">DISCIPLINE</span><button class="filter-chip" data-value="all" aria-pressed="true">All</button>{disciplines.map((d) => <button class="filter-chip" data-value={d} aria-pressed="false">{d}</button>)}</div>

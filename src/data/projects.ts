@@ -46,7 +46,12 @@ export const projects: Project[] = [
         alt: 'Render of a custom Raspberry Pi interface board',
         layout: 'side',
         heading: 'Raspberry Pi interface board',
-        blurb: 'A custom board for a Raspberry Pi 5. It adds the interfaces used to connect the Pi to the surrounding camera system.'
+        blurb: 'A custom board for a Raspberry Pi 5. It is the link between the Pi and the rest of the camera system.',
+        connections: [
+          { to: 'Sensors', via: 'I2C' },
+          { to: 'Cameras', via: 'Trigger lines' },
+          { to: 'Lights', via: 'PWM' }
+        ]
       },
       {
         type: 'image',
@@ -74,7 +79,7 @@ export const projects: Project[] = [
     highlights: ['Behaviour-tree vehicle control', 'Multi-sensor integration', 'Autonomous agricultural machinery'],
     visual: 'robot',
     visualLabel: 'AUTONOMY',
-    cover: '/media/axis7/cover-photo-robotics.jpg',
+    cover: '/media/axis7/jono-infront-of-broccoli_harvest.jpeg',
     media: [
       {
         type: 'image',

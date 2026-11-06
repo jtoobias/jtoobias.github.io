@@ -36,6 +36,7 @@ export const site = {
   ],
   experience: [
     {
+      id: 'lensor',
       company: 'Lensor',
       role: 'Embedded / Integration Engineer',
       period: 'Mar 2025 — Present',
@@ -52,6 +53,7 @@ export const site = {
       ]
     },
     {
+      id: 'axis7',
       company: 'Axis7',
       role: 'Robotics Engineer',
       period: 'Feb 2022 — Jun 2024',
@@ -67,6 +69,7 @@ export const site = {
       ]
     },
     {
+      id: 'bentech',
       company: 'Bentech',
       role: 'Electronic Engineer',
       period: '2017 — 2020',

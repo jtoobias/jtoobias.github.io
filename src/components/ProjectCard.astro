@@ -10,7 +10,7 @@ const { project, index = '01' } = Astro.props;
     {!project.cover && project.visual === 'robot' && <div class="robot-art"><div class="robot-body"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="sensor-line"></div><span>FIELD / AUTONOMY</span></div>}
     {!project.cover && project.visual === 'circuit' && <div class="circuit-art"><div class="circuit-chip"></div><i></i><i></i><i></i><i></i><span>EMBEDDED SYSTEMS</span></div>}
     {!project.cover && project.visual === 'sensors' && <div class="sensor-art"><div class="sensor-node n1">01</div><div class="sensor-node n2">02</div><div class="sensor-node n3">03</div><div class="sensor-hub">MQTT<br/>HUB</div><span class="sensor-wire"></span></div>}
-    <span class="art-arrow">↗</span>
+    <span class="art-arrow">→</span>
   </div>
   <div class="project-card-meta"><span>{project.company}</span><span>{project.year}</span></div>
   <h3>{project.title}</h3>

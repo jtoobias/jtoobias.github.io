@@ -7,6 +7,8 @@ export type MediaFields = {
   heading?: string;
   blurb?: string;
   caption?: string;
+  /** How this piece connects to the rest of the system. Shown under the blurb. */
+  connections?: { to: string; via: string }[];
 };
 
 export type MediaItem =
