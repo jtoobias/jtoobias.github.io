@@ -30,7 +30,8 @@ export const projects: Project[] = [
     category: 'Embedded hardware',
     year: '2025–2026',
     summary: 'Custom PCB shield connecting a Raspberry Pi 5 to external systems and sensors for Lensor Gates.',
-    description: 'A custom hardware platform that extends a Raspberry Pi 5 with the interfaces needed by a larger camera and sensorsystem.',
+    description: `Custom PCB shield connecting a Raspberry Pi 5 to multiple cameras, lighting drivers and sensors for Lensor Gates.
+    The PCB was designed to be robust, reliable and to EU standards.`,
     role: 'Hardware design and integration',
     technologies: ['PCB design', 'Embedded Linux', 'Raspberry Pi 5', 'Python', 'Cameras'],
     theme: 'lensor',
