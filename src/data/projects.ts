@@ -12,7 +12,7 @@ export type Project = {
   role: string;
   technologies: string[];
   theme: 'lensor' | 'axis7' | 'bentech' | 'personal' | 'masters';
-  status: string;
+  status?: string;
   highlights: string[];
   visual: 'board' | 'robot' | 'circuit' | 'sensors' | 'cart';
   visualLabel: string;
@@ -26,56 +26,72 @@ export const projects: Project[] = [
     slug: 'raspberry-pi-5-interface-board',
     title: 'Raspberry Pi 5 Interface Board',
     company: 'Lensor',
-    disciplines: ['Electronics & PCB', 'Embedded systems'],
+    disciplines: ['Electronics'],
     category: 'Embedded hardware',
     year: '2025–2026',
-    summary: 'A custom PCB connecting a Raspberry Pi 5 to external systems and sensors.',
+    summary: 'Custom PCB shield connecting a Raspberry Pi 5 to external systems and sensors for Lensor Gates.',
     description: 'A custom hardware platform that extends a Raspberry Pi 5 with the interfaces needed by a larger camera and sensorsystem.',
     role: 'Hardware design and integration',
-    technologies: ['Raspberry Pi 5', 'PCB design', 'Embedded Linux', 'Hardware integration'],
+    technologies: ['PCB design', 'Embedded Linux', 'Raspberry Pi 5', 'Python', 'Cameras'],
     theme: 'lensor',
-    status: 'Details to be expanded',
+    // status: 'Details to be expanded',
     highlights: ['Custom PCB design', 'Camera and sensor interfacing', 'Hardware and software integration'],
     visual: 'board',
     visualLabel: 'HARDWARE',
-    cover: '/media/lensor/Umbra-Lensor.jpeg',
+    cover: '/media/lensor/rpi-shield-real.jpeg',
     media: [
       {
         type: 'image',
-        src: '/media/lensor/rpi-shield.png',
-        alt: 'Render of a custom Raspberry Pi interface board',
+        src: '/media/lensor/rpi-shield-real.jpeg',
+        alt: 'Custom shield PCB for Raspberry Pi 5',
         layout: 'side',
-        heading: 'Raspberry Pi interface board',
-        blurb: 'A custom board for a Raspberry Pi 5. It is the link between the Pi and the rest of the camera system.',
-        connections: [
-          { to: 'Sensors', via: 'I2C' },
-          { to: 'Cameras', via: 'Trigger lines' },
-          { to: 'Lights', via: 'PWM' }
-        ]
+        headingAbove: true,
+        heading: 'Raspberry Pi 5 Shield',
+        blurb: `Custom Raspberry Pi 5 Shield for cameras, sensors and external systems.
+        - It was designed and tested for:
+        - Handling a 24V DC supply, with over and under voltage protection, reverse polarity protection and short circuit protection.
+        - Three camera trigger circuits, using 5V high-side switching.
+        - Three PWM channels for lighting control, through external LED drivers.
+        - 2x I2C communication up to 20 meters depending on board rate and sensor power requirements.
+        - 2x UART communication.
+        - Switched external sensor power, with short circuit protection 
+        - 2x 5-50V input & 2x 24V fused output channels.`
       },
       {
         type: 'image',
         src: '/media/lensor/Umbra-Lensor.jpeg',
         alt: 'A vehicle inside a lit camera inspection rig',
         layout: 'side',
-        heading: 'Camera system',
-        blurb: 'A Lensor camera inspection rig.'
+        heading: 'Umbra: The Gate',
+        blurb: `The circuit board + RPI 5 above was the link between the hardware and the main computer vision system.  
+        It was used to track the vehicle through the use of magentometer sensors, trigger cameras at consistent vehicle positions, 
+        and turn the lights on and off at the right brightness for the vehicle inspection to work.`
       }
     ]
   },
+
+
   {
     slug: 'autonomous-agricultural-robotics',
-    title: 'Autonomous Agricultural Robotics',
+    title: 'Agricultural Robotics',
     company: 'Axis7',
-    disciplines: ['Robotics', 'Perception & sensors', 'Software'],
+    disciplines: ['Robotics', 'Perception & sensors', 'Python', 'CAN bus','ROS'],
     category: 'Robotics',
     year: '2022–2024',
-    summary: 'Autonomous and remotely operated agricultural vehicles for a robotic harvesting platform.',
-    description: 'Work on autonomous agricultural machinery, including a platform developed for broccoli harvesting. The system brought together vehicle behaviour, localisation and a range of perception sensors. Further detail can be added where it is appropriate to share.',
+    summary: `Axis7 was a true robotics startup, 
+    where I learnd a lot and was able to put my skills that I learnt from my masters into practice.
+    I was able to work on the entire system, from the hardware to the software, and the data collection and analysis.`,
+
+    description: `At Axis7 I worked on various robotics projects, with a couple of main ones being:
+    'Archi-Jnr' control system and our own autonomous broccoli harvester.
+    'Archi-Jnr' was similar to my masters project, by developing a control system for it and designing methods for it to navigate down vinyard rows..
+    The broccoli harvester was a fun, tiring, stressfull and rewarding projects where I was able to work on and design the software system for it.
+    It incorportated many things from my masters but also push my knownledge in computer vision, camera systems, PLC programming, Motor control, and robot kinematics.`,
+
     role: 'Robotics software and system integration',
-    technologies: ['ROS 1', 'C++', 'Python', 'Behaviour trees', 'RTK-GPS', 'LiDAR', 'CAN'],
+    technologies: ['ROS', 'C++', 'Computer vision', 'Python', 'CAN bus', 'LiDAR', 'RTK-GPS', 'Cameras', 'Behaviour trees', 'Linux'],
     theme: 'axis7',
-    status: 'Details to be expanded',
+    // status: 'Details to be expanded',
     highlights: ['Behaviour-tree vehicle control', 'Multi-sensor integration', 'Autonomous agricultural machinery'],
     visual: 'robot',
     visualLabel: 'AUTONOMY',
@@ -83,27 +99,20 @@ export const projects: Project[] = [
     media: [
       {
         type: 'image',
-        src: '/media/axis7/cover-photo-robotics.jpg',
-        alt: 'A golf cart robotics platform parked beside a larger agricultural robot in a vineyard',
-        layout: 'side',
-        heading: 'Field platforms',
-        blurb: 'A golf-cart robotics platform beside a larger agricultural machine. My work covered vehicle behaviour and sensors including RTK-GPS, LiDAR, cameras, ultrasonics and CAN.'
-      },
-      {
-        type: 'image',
         src: '/media/axis7/jono-infront-of-broccoli_harvest.jpeg',
-        alt: 'Jonathan beside a broccoli harvesting robot lit over a crop row at night',
+        alt: 'Night testing and data collection of the broccoli harvesting platform',
         layout: 'side',
         heading: 'Broccoli harvester',
-        blurb: 'The broccoli harvesting platform during a night test, with the row lit for the cameras.'
+        blurb: 'Night testing and data collection of the broccoli harvesting platform.'
       },
       {
         type: 'video',
         src: '/media/axis7/axis7_film.mp4',
         title: 'Axis7 machines in the field',
         layout: 'below',
-        heading: 'Field footage',
-        blurb: 'Short footage of the machines working in the field.'
+        heading: 'Archi-Jnr and Broccoli harvester footage',
+        blurb: `Archi-Jnr can be seen in an autonomous following the vine through the use of a 3D LiDAR. 
+        After Archie-Jnr, the broccoli harvester can be seen on RViz actively detecting and harvesting broccoli, as the machine is pulled by a tractor.`
       }
     ]
   },
@@ -111,18 +120,19 @@ export const projects: Project[] = [
     slug: 'masters-golf-cart-project',
     title: "Master's Golf Cart Project",
     company: "Master's degree",
-    disciplines: ['Robotics', 'Software', 'ROS 1'],
+    disciplines: ['Robotics', 'Perception & sensors', 'C/C++', 'Python', 'ROS', 'CAN bus'],
     category: 'Robotics',
     year: '2020-2022',
     summary: "A robotics project designed to build a transferable autonomous system based around a golf cart platform.",
     description: "A robotics project designed to build a transferable autonomous system based around a golf cart platform. The clips below show some of the work done during the project.",
     role: 'Path planning, mapping and autonomous driving',
-    technologies: ['ROS 1', 'C++', 'Python', 'Gazebo', 'RViz', 'Ubuntu', 'Linux'],
+    technologies: ['ROS', 'C++', 'Python', 'LiDAR', 'RTK-GPS', 'Ultrasonic sensor', 'CAN bus', 'Computer vision', 'Cameras', 'Behaviour trees', 'Linux', 'Gazebo'],
     theme: 'masters',
-    status: 'Details to be expanded',
+    // status: 'Details to be expanded',
     highlights: ['Path planning', 'Mapping', 'Autonomous driving'],
     visual: 'cart',
     visualLabel: 'ROBOTICS',
+    cover: '/media/masters/cover-photo-robotics.jpg',
     links: [
       {
         label: 'Transferable Semi-autonomous Architecture for Vehicles Operating in Corridor Crop Environments',
@@ -163,19 +173,25 @@ export const projects: Project[] = [
     slug: 'embedded-electronics',
     title: 'Embedded Electronics & Firmware',
     company: 'Bentech',
-    disciplines: ['Embedded systems', 'Electronics & PCB'],
+    disciplines: ['Electronics', 'C/C++'],
     category: 'Electronics',
     year: '2017–2020',
-    summary: 'Embedded C development and electronics work across a variety of hardware projects.',
-    description: 'Electronics development and embedded C firmware across a range of hardware projects. The examples below are a selection that can be shown publicly.',
-    role: 'Electronic engineering and embedded firmware',
-    technologies: ['Embedded C', 'Microcontrollers', 'Electronics', 'Communication interfaces'],
+    summary: `Vast range of circuit board and firmware development for projects in vehicle monitor, enivornment research device, and agricultural focus products. 
+    A few examples are shown here.`,
+    description: `During my time at Bentech I was able to work on a vast range of projects with a few shown above. 
+    I am very proud of all the work I did at Bentech, with the two main ones being the autosampler and the heat ranger sensor montior.
+    The autosampler tested my ability to make a nice user friendly product while being precise, reliable, upgradable and long lasting. 
+    When I left the product was going through its final testing and ready to be sold to other researchers.
+    The heat ranger sensor was a small IoT style PCB. It was able to run on a single lipo battery, monitor temperature and humidity while reporting this information of hundreds of meters back to the base heat ranger.
+    All of the projects I worked on for clients were upgradeable and largely over the air (OTA) using WiFi or LoRa.`,
+    role: 'Electronic Engineering and Embedded Firmware Seveloper',
+    technologies: ['PCB design', 'Embedded C', 'ESP32', 'ATxmega', 'LoRa'],
     theme: 'bentech',
-    status: 'Project examples to be added',
+    // status: '',
     highlights: ['Embedded C firmware', 'Electronics development', 'Hardware bring-up'],
     visual: 'circuit',
     visualLabel: 'ELECTRONICS',
-    cover: '/media/bentech/autosampler_full.jpg',
+    cover: '/media/bentech/vx-autosampler.jpg',
     media: [
       {
         type: 'image',
@@ -183,7 +199,10 @@ export const projects: Project[] = [
         alt: 'A transparent autosampler machine with tubing, clamps and a sample carousel',
         layout: 'side',
         heading: 'Autosampler',
-        blurb: 'This product was able to run on a pack of AA batteries, run for up to a year without intervention in harsh mineral rich cave environments, while sampling cave water on accurate time intervals. This product was wanted by and developed for researchers from the University of Waikato.'
+        blurb: `This product was able to run on a pack of AA batteries, 
+        run for up to a year without intervention in harsh mineral rich cave environments, 
+        while sampling cave water on accurate time intervals. 
+        This product was wanted by and developed for researchers from the University of Waikato.`
       },
       {
         type: 'image',
@@ -191,7 +210,10 @@ export const projects: Project[] = [
         alt: '4-layer PCB for an autosampler. Showing motor drivers, sensors, ESP32, power management and RTC',
         layout: 'side',
         heading: 'Autosampler PCB',
-        blurb: 'The PCB was designed to be ultra low power while still able to control motors, read sensor temperature and humidity sensors, detect water overflow and when required communicate data with a graphical user interface (GUI) over WiFi through a ESP32. Motors used in this project were stepper motors (table and ganntry) and a linear actuator (for the sampling needle).'
+        blurb: `The PCB was designed to be ultra low power while still able to control motors,
+        read sensor temperature and humidity sensors, detect water overflow and when required
+        communicate data using a web interface using the ESP32 as an access point.
+        Motors used in this project were stepper motors (table and ganntry) and a linear actuator (for the sampling needle).`
       },
       {
         type: 'image',
@@ -199,7 +221,7 @@ export const projects: Project[] = [
         alt: 'A probe suspended in a beaker of water on an electronics bench',
         layout: 'side',
         heading: 'Water detection',
-        blurb: 'Bench setup for testing water detection on the autosampler. A signal is pulsed on one needle and measured from the other needle using an opamp circuit.'
+        blurb: 'An example of the bench setup for testing water (overflow) detection on the autosampler. A signal is pulsed on one needle and measured from the other needle using an opamp circuit.'
       },
       {
         type: 'image',
@@ -215,15 +237,19 @@ export const projects: Project[] = [
     slug: 'CAN-IO-Board',
     title: 'CAN IO Board',
     company: 'Personal',
-    disciplines: ['Embedded systems', 'CAN bus', 'Software', 'Robotics'],
+    disciplines: ['Electronics', 'C/C++', 'Python', 'CAN bus', 'Robotics'],
     category: 'Robotics / Embedded',
     year: 'Ongoing',
     summary: 'A personal CAN bus opto-coupled input and output board for user and switch interfaces.',
-    description: 'A personal PCB for user interface and sensor acquisition over CAN, built around an STM32. The CANopen system also incorporates a custom made Objecy Dictionary (based on standard CANopen dictionaries) to allow for configuration of packages (PDOs, NMT, SDOs, etc). The board is still in progress and recently changed to a two PCB design for a more compact solution. A python GUI was also created to allow for easy configuration and monitoring of the board.',
+    description: `A personal PCB for user interface and sensor acquisition over CAN, built around an STM32.
+    The CANopen system also incorporates a custom made Objecy Dictionary (based on standard CANopen dictionaries)
+    to allow for configuration of packages (PDOs, NMT, SDOs, etc). The board is still in progress and recently
+    changed to a two PCB design for a more compact solution. 
+    A python GUI was also created to allow for easy configuration and monitoring of the board.`,
     role: 'Personal project',
-    technologies: ['STM32', 'C/C++', 'CAN bus', 'DMA', 'PCB design', 'Python'],
+    technologies: ['STM32', 'Embedded C', 'CAN bus', 'PCB design', 'Python'],
     theme: 'personal',
-    status: 'In progress',
+    // status: 'In progress',
     highlights: ['CAN bus communication', 'Sensor acquisition', 'Safety and reliability'],
     visual: 'board',
     visualLabel: 'Robotics Peripherals',
@@ -232,34 +258,29 @@ export const projects: Project[] = [
       {
         type: 'image',
         src: '/media/personal/CAN_IO_Board.jpg',
-        alt: 'A green CAN input and output board with connectors, a DIP switch and a USB port',
+        alt: `A CANopen opto-isolated IO board with connectors, DIP switches to configure CAN ID and baud rate,
+         and a USB port for configuration and monitoring.`,
         layout: 'side',
         heading: 'CAN IO board',
-        blurb: 'Power, CAN, a node-address switch and a USB port. The board is still in progress.'
+        blurb: `This is a CANopen opto-isolated IO board, built around an STM32. This board was designed for two main purposes:
+        - To try develop a CANopen IO device that could be used in robotics systems while being afforabled.
+        - To dive into the world of STM32 microcontrollers.`
+      },
+      {
+        type: 'image',
+        src: '/media/personal/CAN-IO-GUI-main-page.jpeg',
+        alt: `A CAN IO project GUI`,
+        layout: 'side',
+        heading: 'CAN IO board User Interface',
+        blurb: `This made configuring and reading the board information significantly more user friendly.
+         While still being a minimum viable product, it was a fun project to work on and learn from.`
       }
     ]
   },
-  {
-    slug: 'esp32-mqtt-sensor-platform',
-    title: 'ESP32 MQTT Sensor Platform',
-    company: 'Personal',
-    disciplines: ['Embedded systems', 'IoT', 'Software'],
-    category: 'IoT / Embedded',
-    year: 'Ongoing',
-    summary: 'A personal sensor platform using ESP32 devices and MQTT.',
-    description: 'A personal project exploring a small distributed sensor platform. ESP32 devices publish readings over MQTT so they can be collected for monitoring and analysis.',
-    role: 'Personal project',
-    technologies: ['ESP32', 'C++', 'MQTT', 'Python'],
-    theme: 'personal',
-    status: 'In progress',
-    highlights: ['Wireless sensor acquisition', 'MQTT messaging', 'Extensible data collection'],
-    visual: 'sensors',
-    visualLabel: 'CONNECTED SENSORS'
-  }
 ];
 
 export const featuredSlugs = [
   'raspberry-pi-5-interface-board',
   'autonomous-agricultural-robotics',
-  'masters-golf-cart-project'
+  'embedded-electronics'
 ];

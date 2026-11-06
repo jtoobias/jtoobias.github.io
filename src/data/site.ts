@@ -28,7 +28,7 @@ export const site = {
   availability: 'Open to the right engineering opportunity',
   skills: [
     'Embedded C/C++', 'Python', 'Printed Circuit Board (PCB) design (KiCAD, Altium)', 'Sensor Integration',
-    'ROS 1/2', 'ESP32', 'STM32', 'Raspberry Pi',
+    'ROS', 'ESP32', 'STM32', 'Raspberry Pi',
     'CAN', 'MQTT','Most uC Based Communication Protocols', 
     'Git', 'Docker', 'SQL', 'Linux',
     'Computer Vision', 'YOLO', 'OpenCV',
@@ -81,7 +81,7 @@ export const site = {
         'Designed and develeop custom electronic hardware for clients projects.',
         'Developed embedded C firmware and custom bootloaders for microcontroller-based, allowing for over-the-air updates.',
         'Projects involved low power operation, motor control, sensors, lighting and various communication protocols.',
-        'LoRa, WiFi, CAN, RS232, RS485, I2C, SPI, USB and SD-CARD storage, Real Time Clock (RTC), , sensor acquisition and more.'
+        'LoRa, WiFi, CAN, RS232, RS485, I2C, SPI, USB and SD-CARD storage, Real Time Clock (RTC), sensor acquisition and more.'
       ]
     }
   ]

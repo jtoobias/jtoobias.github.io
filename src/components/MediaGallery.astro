@@ -1,6 +1,7 @@
 ---
 import { youtubeEmbedUrl, isPlaceholder } from '../lib/media';
 import type { MediaItem } from '../lib/media';
+import Blurb from './Blurb.astro';
 const { items = [] } = Astro.props as { items?: MediaItem[] };
 const dev = import.meta.env.DEV;
 
@@ -14,7 +15,8 @@ const entries = items.map((m) => {
   const hasRest = Boolean(m.blurb || m.caption || m.connections?.length);
   const layout = m.layout ?? (m.heading || hasRest ? (m.type === 'image' ? 'side' : 'below') : 'plain');
   const flip = m.flip ?? (layout === 'side' ? sideIndex++ % 2 === 1 : false);
-  return { m, src, layout, flip, hasRest };
+  const headingAbove = layout !== 'side' || Boolean(m.headingAbove);
+  return { m, src, layout, flip, hasRest, headingAbove };
 }).filter((e) => e.src || dev);
 
 const showKicker = entries.length > 0 && entries.every((e) => !e.m.heading);
@@ -23,12 +25,12 @@ const showKicker = entries.length > 0 && entries.every((e) => !e.m.heading);
   <section class="media-section">
     {showKicker && <div class="section-kicker">FROM THE WORK</div>}
     <div class="media-stack">
-      {entries.map(({ m, src, layout, flip, hasRest }) => (
+      {entries.map(({ m, src, layout, flip, hasRest, headingAbove }) => (
         <figure class:list={['media-feature', `is-${layout}`]}>
-          {layout !== 'side' && m.heading && <h3 class="media-heading">{m.heading}</h3>}
+          {headingAbove && m.heading && <h3 class="media-heading">{m.heading}</h3>}
           {layout === 'above' && hasRest && (
             <figcaption class="media-copy">
-              {m.blurb && <p>{m.blurb}</p>}
+              {m.blurb && <Blurb text={m.blurb} />}
               {m.connections && m.connections.length > 0 && (
                 <div class="media-connections">
                   <div class="section-kicker">Connects to</div>
@@ -46,10 +48,10 @@ const showKicker = entries.length > 0 && entries.every((e) => !e.m.heading);
               {src && m.type === 'video' && <div class="media-frame"><video controls playsinline preload="metadata" poster={m.poster} src={src} aria-label={m.title} muted={m.autoplay || undefined} autoplay={m.autoplay || undefined} loop={m.autoplay || undefined}></video></div>}
               {src && m.type === 'embed' && <div class="media-frame" style={`aspect-ratio:${m.aspect ?? '16/9'}`}><iframe src={src} title={m.title} loading="lazy" allowfullscreen></iframe></div>}
             </div>
-            {layout !== 'above' && (layout === 'side' ? Boolean(m.heading || hasRest) : hasRest) && (
+            {layout !== 'above' && (layout === 'side' ? Boolean((!headingAbove && m.heading) || hasRest) : hasRest) && (
               <figcaption class="media-copy">
-                {layout === 'side' && m.heading && <h3 class="media-heading">{m.heading}</h3>}
-                {m.blurb && <p>{m.blurb}</p>}
+                {layout === 'side' && !headingAbove && m.heading && <h3 class="media-heading">{m.heading}</h3>}
+                {m.blurb && <Blurb text={m.blurb} />}
                 {m.connections && m.connections.length > 0 && (
                   <div class="media-connections">
                     <div class="section-kicker">Connects to</div>

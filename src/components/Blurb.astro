@@ -1,0 +1,14 @@
+---
+const { text = '' } = Astro.props as { text?: string };
+const blocks = text.trim().split(/\n\s*\n/).filter(Boolean).map((block) => {
+  const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
+  const bullets = lines.length > 0 && lines.every((line) => /^[-*]\s+/.test(line));
+  return bullets
+    ? { type: 'list' as const, items: lines.map((line) => line.replace(/^[-*]\s+/, '')) }
+    : { type: 'p' as const, lines };
+});
+---
+{blocks.map((block) => block.type === 'list'
+  ? <ul>{block.items.map((item) => <li>{item}</li>)}</ul>
+  : <p>{block.lines.map((line, i) => <>{i > 0 && <br />}{line}</>)}</p>
+)}

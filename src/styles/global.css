@@ -35,6 +35,9 @@
 .media-visual{min-width:0}
 .media-visual img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--paper)}
 .media-copy p{margin:0;color:var(--muted);font-size:16px;line-height:1.75}
+.media-copy p+p,.media-copy ul{margin-top:12px}
+.media-copy ul{margin-bottom:0;padding-left:1.15em;color:var(--muted);font-size:16px;line-height:1.75}
+.media-copy li{padding:2px 0}
 .media-note{margin-top:12px !important;font:11px/1.5 'DM Mono',monospace;letter-spacing:.04em}
 .media-connections{margin-top:22px}
 .media-connections dl{margin:8px 0 0}

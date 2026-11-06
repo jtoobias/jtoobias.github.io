@@ -1,7 +1,9 @@
 /** Shared writing that can sit beside or under any media item. */
 export type MediaFields = {
-  /** `side` puts the writing next to the media. `below` stacks it underneath. `above` stacks it above. */
+  /** `side` puts the blurb next to the media. `below` puts it underneath. `above` puts it above. */
   layout?: 'side' | 'below' | 'above';
+  /** Keep the heading above the media when `layout` is `side`. */
+  headingAbove?: boolean;
   /** Put the writing on the left. Side-by-side items alternate when this is left unset. */
   flip?: boolean;
   heading?: string;
