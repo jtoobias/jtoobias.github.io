@@ -1,5 +1,7 @@
 # Jonathan Tobias — Engineering Portfolio (V2)
 
+[Jonathan's Portfolio](https://jtoobias.github.io/)
+
 A lightweight, multi-page Astro portfolio for GitHub Pages. Light theme only.
 
 ## Run locally

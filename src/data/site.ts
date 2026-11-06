@@ -72,7 +72,7 @@ export const site = {
       id: 'bentech',
       company: 'Bentech',
       role: 'Electronic Engineer',
-      period: '2017 — 2020',
+      period: 'Nov 2017 — Nov 2020',
       location: 'Hamilton,New Zealand',
       theme: 'bentech',
       summary:
