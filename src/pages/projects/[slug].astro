@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import MediaGallery from '../../components/MediaGallery.astro';
 import { projects } from '../../data/projects';
 export function getStaticPaths() {
   return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
@@ -9,11 +10,22 @@ const { project } = Astro.props;
 <BaseLayout title={project.title} description={project.summary}>
   <article class={`case-study ${project.theme}`}>
     <a class="back-link" href="/projects/">← All projects</a>
-    <div class="case-top"><div class="section-kicker">{project.company.toUpperCase()} / {project.category.toUpperCase()}</div><span>{project.year}</span></div>
+    <div class="case-top"><div class="section-kicker">{project.company.toUpperCase()} / {project.category.toUpperCase()}</div>{project.year && <span>{project.year}</span>}</div>
     <h1>{project.title}</h1><p class="case-summary">{project.summary}</p>
-    <div class="case-visual">
-      <div class="case-visual-grid"></div><div class="case-visual-center"><span>{project.company === 'Personal' ? 'PERSONAL LAB' : project.company.toUpperCase()}</span><strong>{project.visual === 'robot' ? 'AUTONOMY' : project.visual === 'board' ? 'HARDWARE' : project.visual === 'circuit' ? 'ELECTRONICS' : 'CONNECTED SENSORS'}</strong><small>ENGINEERING / CASE STUDY</small></div>
-    </div>
+    {project.links?.length > 0 && (
+      <div class="case-links">
+        <div class="section-kicker">PUBLICATION</div>
+        {project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} <span>↗</span></a>)}
+      </div>
+    )}
+    {!(project.media && project.media.length) && (
+      <div class="case-visual">
+        {project.cover
+          ? <img class="project-cover" src={project.cover} alt="" />
+          : <><div class="case-visual-grid"></div><div class="case-visual-center"><span>{project.company === 'Personal' ? 'PERSONAL LAB' : project.company.toUpperCase()}</span><strong>{project.visualLabel}</strong><small>ENGINEERING / CASE STUDY</small></div></>}
+      </div>
+    )}
+    <MediaGallery items={project.media} />
     <div class="case-columns"><div><div class="section-kicker">OVERVIEW</div><p>{project.description}</p><div class="section-kicker case-subhead">MY ROLE</div><p>{project.role}</p></div><aside><div class="section-kicker">TECHNOLOGIES</div><div class="tag-row case-tags">{project.technologies.map((tag) => <span>{tag}</span>)}</div><div class="section-kicker case-subhead">KEY AREAS</div><ul>{project.highlights.map((item) => <li>{item}</li>)}</ul><div class="project-status">{project.status}</div></aside></div>
     <div class="case-bottom"><span>MORE PROJECTS</span><a href="/projects/">Back to the overview ↗</a></div>
   </article>

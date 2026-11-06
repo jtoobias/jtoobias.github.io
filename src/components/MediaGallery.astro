@@ -1,0 +1,46 @@
+---
+import { youtubeEmbedUrl, isPlaceholder } from '../lib/media';
+import type { MediaItem } from '../lib/media';
+const { items = [] } = Astro.props as { items?: MediaItem[] };
+const dev = import.meta.env.DEV;
+
+let sideIndex = 0;
+const entries = items.map((m) => {
+  let src: string | null = null;
+  if (m.type === 'image') src = isPlaceholder(m.src) ? null : m.src;
+  if (m.type === 'youtube') src = youtubeEmbedUrl(m.url, m.start, m.end);
+  if (m.type === 'video') src = isPlaceholder(m.src) ? null : m.src + (m.start ? `#t=${m.start}` : '');
+  if (m.type === 'embed') src = /^https:\/\//.test(m.url) ? m.url : null;
+  const hasCopy = Boolean(m.heading || m.blurb || m.caption);
+  const layout = m.layout ?? (hasCopy ? (m.type === 'image' ? 'side' : 'below') : 'plain');
+  const flip = m.flip ?? (layout === 'side' ? sideIndex++ % 2 === 1 : false);
+  return { m, src, layout, flip, hasCopy };
+}).filter((e) => e.src || dev);
+
+const showKicker = entries.length > 0 && entries.every((e) => !e.m.heading);
+---
+{entries.length > 0 && (
+  <section class="media-section">
+    {showKicker && <div class="section-kicker">FROM THE WORK</div>}
+    <div class="media-stack">
+      {entries.map(({ m, src, layout, flip, hasCopy }) => (
+        <figure class:list={['media-feature', `is-${layout}`, { flip: layout === 'side' && flip }]}>
+          <div class="media-visual">
+            {!src && <div class="media-frame"><div class="media-placeholder">MEDIA PLACEHOLDER ({m.type})<br />Replace the link in src/data/projects.ts. Hidden on the live site.</div></div>}
+            {src && m.type === 'image' && <img src={src} alt={m.alt} loading="lazy" />}
+            {src && m.type === 'youtube' && <div class="media-frame"><iframe src={src} title={m.title} loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>}
+            {src && m.type === 'video' && <div class="media-frame"><video controls playsinline preload="metadata" poster={m.poster} src={src} aria-label={m.title} muted={m.autoplay || undefined} autoplay={m.autoplay || undefined} loop={m.autoplay || undefined}></video></div>}
+            {src && m.type === 'embed' && <div class="media-frame" style={`aspect-ratio:${m.aspect ?? '16/9'}`}><iframe src={src} title={m.title} loading="lazy" allowfullscreen></iframe></div>}
+          </div>
+          {hasCopy && (
+            <figcaption class="media-copy">
+              {m.heading && <h3>{m.heading}</h3>}
+              {m.blurb && <p>{m.blurb}</p>}
+              {m.caption && <p class="media-note">{m.caption}</p>}
+            </figcaption>
+          )}
+        </figure>
+      ))}
+    </div>
+  </section>
+)}

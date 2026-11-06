@@ -1,13 +1,15 @@
 ---
 const { project, index = '01' } = Astro.props;
 ---
-<a class={`project-card ${project.theme}`} href={`/projects/${project.slug}/`}>
+<a class={`project-card ${project.theme}`} href={`/projects/${project.slug}/`} data-company={project.company} data-disciplines={project.disciplines.join("|")}>
   <div class="project-art" aria-hidden="true">
     <div class="art-index">{index} / PROJECT</div>
-    {project.visual === 'board' && <div class="board-art"><div class="chip">RPi<br/>5</div><i></i><i></i><i></i><b></b><b></b></div>}
-    {project.visual === 'robot' && <div class="robot-art"><div class="robot-body"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="sensor-line"></div><span>FIELD / AUTONOMY</span></div>}
-    {project.visual === 'circuit' && <div class="circuit-art"><div class="circuit-chip"></div><i></i><i></i><i></i><i></i><span>EMBEDDED SYSTEMS</span></div>}
-    {project.visual === 'sensors' && <div class="sensor-art"><div class="sensor-node n1">01</div><div class="sensor-node n2">02</div><div class="sensor-node n3">03</div><div class="sensor-hub">MQTT<br/>HUB</div><span class="sensor-wire"></span></div>}
+    {project.cover && <img class="project-cover" src={project.cover} alt="" loading="lazy" />}
+    {!project.cover && project.visual === 'cart' && <div class="cart-art"><div class="cart-roof"></div><div class="cart-post cp1"></div><div class="cart-post cp2"></div><div class="cart-body"></div><div class="wheel w1"></div><div class="wheel w2"></div><span>ROBOTICS</span></div>}
+    {!project.cover && project.visual === 'board' && <div class="board-art"><div class="chip">RPi<br/>5</div><i></i><i></i><i></i><b></b><b></b></div>}
+    {!project.cover && project.visual === 'robot' && <div class="robot-art"><div class="robot-body"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="sensor-line"></div><span>FIELD / AUTONOMY</span></div>}
+    {!project.cover && project.visual === 'circuit' && <div class="circuit-art"><div class="circuit-chip"></div><i></i><i></i><i></i><i></i><span>EMBEDDED SYSTEMS</span></div>}
+    {!project.cover && project.visual === 'sensors' && <div class="sensor-art"><div class="sensor-node n1">01</div><div class="sensor-node n2">02</div><div class="sensor-node n3">03</div><div class="sensor-hub">MQTT<br/>HUB</div><span class="sensor-wire"></span></div>}
     <span class="art-arrow">↗</span>
   </div>
   <div class="project-card-meta"><span>{project.company}</span><span>{project.year}</span></div>

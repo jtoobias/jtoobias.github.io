@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 ---
 <BaseLayout title="Experience" description="Engineering experience across embedded electronics, robotics and integration.">
-  <section class="page-hero"><div class="section-kicker">BACKGROUND / 03</div><h1>Experience &amp;<br/><em>capabilities.</em></h1><p>My work has taken me from embedded electronics in New Zealand to autonomous agricultural machinery and integrated camera systems in the Netherlands.</p></section>
+  <section class="page-hero"><div class="section-kicker">BACKGROUND</div><h1>Experience &amp;<br/><em>capabilities.</em></h1><p>My work has taken me from embedded electronics in New Zealand to autonomous agricultural machinery, and now to integrated camera systems in the Netherlands.</p></section>
   <section class="timeline">{site.experience.map((job, i) => <article class={`timeline-item ${job.theme}`}><div class="timeline-marker">0{i + 1}</div><div class="timeline-content"><div class="timeline-meta"><span>{job.period}</span><span>{job.location}</span></div><h2>{job.company}</h2><h3>{job.role}</h3><p>{job.summary}</p><ul>{job.points.map((point) => <li>{point}</li>)}</ul></div></article>)}</section>
-  <section class="skills-section"><div><div class="section-kicker">TOOLKIT / 04</div><h2>Tools I work with.</h2><p>A cross-disciplinary toolkit built through product development, integration and personal projects.</p></div><div class="skills-cloud">{site.skills.map((skill) => <span>{skill}</span>)}</div></section>
+  <section class="skills-section"><div><div class="section-kicker">TOOLKIT</div><h2>Tools I work with.</h2><p>A cross-disciplinary toolkit built through product development, integration and personal projects.</p></div><div class="skills-cloud">{site.skills.map((skill) => <span>{skill}</span>)}</div></section>
 </BaseLayout>

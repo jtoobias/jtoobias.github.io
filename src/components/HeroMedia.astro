@@ -1,0 +1,20 @@
+---
+import { youtubeEmbedUrl, isPlaceholder } from '../lib/media';
+import type { MediaItem } from '../lib/media';
+const { item } = Astro.props as { item?: MediaItem };
+let src: string | null = null;
+if (item?.type === 'image' || item?.type === 'video') src = isPlaceholder(item.src) ? null : item.src;
+if (item?.type === 'video' && src && item.start) src += `#t=${item.start}`;
+if (item?.type === 'youtube') src = youtubeEmbedUrl(item.url, item.start, item.end);
+const dev = import.meta.env.DEV;
+---
+{item && (src || dev) && (
+  <div class="hero-media">
+    {!src && <div class="media-placeholder">HERO MEDIA PLACEHOLDER<br />Set heroMedia in src/data/site.ts. Hidden on the live site.</div>}
+    {src && item.type === 'image' && <img src={src} alt={item.alt} />}
+    {src && item.type === 'video' && (item.autoplay
+      ? <video src={src} poster={item.poster} autoplay muted loop playsinline aria-label={item.title}></video>
+      : <video src={src} poster={item.poster} controls preload="metadata" playsinline aria-label={item.title}></video>)}
+    {src && item.type === 'youtube' && <iframe src={src} title={item.title} loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>}
+  </div>
+)}
