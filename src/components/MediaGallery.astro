@@ -12,7 +12,7 @@ const entries = items.map((m) => {
   if (m.type === 'youtube') src = youtubeEmbedUrl(m.url, m.start, m.end);
   if (m.type === 'video') src = isPlaceholder(m.src) ? null : m.src + (m.start ? `#t=${m.start}` : '');
   if (m.type === 'embed') src = /^https:\/\//.test(m.url) ? m.url : null;
-  const hasRest = Boolean(m.blurb || m.caption || m.connections?.length);
+  const hasRest = Boolean(m.blurb || m.connections?.length);
   const layout = m.layout ?? (m.heading || hasRest ? (m.type === 'image' ? 'side' : 'below') : 'plain');
   const flip = m.flip ?? (layout === 'side' ? sideIndex++ % 2 === 1 : false);
   const headingAbove = layout !== 'side' || Boolean(m.headingAbove);
@@ -37,7 +37,6 @@ const showKicker = entries.length > 0 && entries.every((e) => !e.m.heading);
                   <dl>{m.connections.map((c) => <div><dt>{c.to}</dt><dd>{c.via}</dd></div>)}</dl>
                 </div>
               )}
-              {m.caption && <p class="media-note">{m.caption}</p>}
             </figcaption>
           )}
           <div class:list={['media-body', { flip: layout === 'side' && flip }]}>
@@ -47,6 +46,7 @@ const showKicker = entries.length > 0 && entries.every((e) => !e.m.heading);
               {src && m.type === 'youtube' && <div class="media-frame"><iframe src={src} title={m.title} loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>}
               {src && m.type === 'video' && <div class="media-frame"><video controls playsinline preload="metadata" poster={m.poster} src={src} aria-label={m.title} muted={m.autoplay || undefined} autoplay={m.autoplay || undefined} loop={m.autoplay || undefined}></video></div>}
               {src && m.type === 'embed' && <div class="media-frame" style={`aspect-ratio:${m.aspect ?? '16/9'}`}><iframe src={src} title={m.title} loading="lazy" allowfullscreen></iframe></div>}
+              {m.caption && <p class="media-note">{m.caption}</p>}
             </div>
             {layout !== 'above' && (layout === 'side' ? Boolean((!headingAbove && m.heading) || hasRest) : hasRest) && (
               <figcaption class="media-copy">
@@ -58,7 +58,6 @@ const showKicker = entries.length > 0 && entries.every((e) => !e.m.heading);
                     <dl>{m.connections.map((c) => <div><dt>{c.to}</dt><dd>{c.via}</dd></div>)}</dl>
                   </div>
                 )}
-                {m.caption && <p class="media-note">{m.caption}</p>}
               </figcaption>
             )}
           </div>

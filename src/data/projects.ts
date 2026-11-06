@@ -178,7 +178,7 @@ export const projects: Project[] = [
     year: '2017–2020',
     summary: `Vast range of circuit board and firmware development for projects in vehicle monitor, enivornment research device, and agricultural focus products. 
     A few examples are shown here.`,
-    description: `During my time at Bentech I was able to work on a vast range of projects with a few shown above. 
+    description: `During my time at Bentech I was able to work on a vast range of projects with a few shown below. 
     I am very proud of all the work I did at Bentech, with the two main ones being the autosampler and the heat ranger sensor montior.
     The autosampler tested my ability to make a nice user friendly product while being precise, reliable, upgradable and long lasting. 
     When I left the product was going through its final testing and ready to be sold to other researchers.

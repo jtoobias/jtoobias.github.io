@@ -11,13 +11,14 @@ const { project } = Astro.props;
   <article class={`case-study ${project.theme}`}>
     <a class="back-link" href="/projects/">← All projects</a>
     <div class="case-top"><div class="section-kicker">{project.company.toUpperCase()} / {project.category.toUpperCase()}</div>{project.year && <span>{project.year}</span>}</div>
-    <h1>{project.title}</h1><p class="case-summary">{project.summary}</p>
+    <h1>{project.title}</h1>
     {project.links?.length > 0 && (
       <div class="case-links">
         <div class="section-kicker">PUBLICATION</div>
         {project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} <span>↗</span></a>)}
       </div>
     )}
+    <div class="case-columns"><div><div class="section-kicker">MY ROLE</div><p>{project.role}</p><div class="section-kicker case-subhead">OVERVIEW</div><p>{project.description}</p></div><aside><div class="section-kicker">TECHNOLOGIES</div><div class="tag-row case-tags">{project.technologies.map((tag) => <span>{tag}</span>)}</div><div class="section-kicker case-subhead">KEY AREAS</div><ul>{project.highlights.map((item) => <li>{item}</li>)}</ul>{project.status && <div class="project-status">{project.status}</div>}</aside></div>
     {!(project.media && project.media.length) && (
       <div class="case-visual">
         {project.cover
@@ -26,6 +27,5 @@ const { project } = Astro.props;
       </div>
     )}
     <MediaGallery items={project.media} />
-    <div class="case-columns"><div><div class="section-kicker">OVERVIEW</div><p>{project.description}</p><div class="section-kicker case-subhead">MY ROLE</div><p>{project.role}</p></div><aside><div class="section-kicker">TECHNOLOGIES</div><div class="tag-row case-tags">{project.technologies.map((tag) => <span>{tag}</span>)}</div><div class="section-kicker case-subhead">KEY AREAS</div><ul>{project.highlights.map((item) => <li>{item}</li>)}</ul>{project.status && <div class="project-status">{project.status}</div>}</aside></div>
   </article>
 </BaseLayout>
