@@ -1,2 +1,0 @@
-Replace this file with a public-safe PDF CV named Jonathan-Tobias-CV.pdf.
-The CV link can be added to the navigation or About page when the PDF is ready.
