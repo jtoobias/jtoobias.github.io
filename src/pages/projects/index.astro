@@ -2,9 +2,46 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { projects } from '../../data/projects';
+const disciplines = [...new Set(projects.flatMap((p) => p.disciplines))].sort();
+const employers = [...new Set(projects.map((p) => p.company))];
 ---
 <BaseLayout title="Projects" description="Selected engineering projects across embedded electronics, robotics and IoT.">
-  <section class="page-hero"><div class="section-kicker">PORTFOLIO / 02</div><h1>Selected<br/><em>projects.</em></h1><p>A selection of engineering work spanning embedded hardware, robotics, electronics and personal experimentation.</p></section>
-  <section class="section-block projects-page"><div class="project-grid">{projects.map((project, i) => <ProjectCard project={project} index={String(i + 1).padStart(2, '0')} />)}</div></section>
-  <p class="content-note">Project descriptions are being refined. Some work was completed for employers and will only be expanded with information and imagery that is appropriate to share publicly.</p>
+  <section class="page-hero"><div class="section-kicker">PORTFOLIO</div><h1>Selected<br/><em>projects.</em></h1><p>Engineering work across embedded hardware, robotics, electronics and personal projects. Filter by discipline or employer.</p></section>
+  <section class="section-block projects-page">
+    <div class="filters" role="group" aria-label="Filter projects">
+      <div class="filter-group" data-group="discipline"><span class="filter-label">DISCIPLINE</span><button class="filter-chip" data-value="all" aria-pressed="true">All</button>{disciplines.map((d) => <button class="filter-chip" data-value={d} aria-pressed="false">{d}</button>)}</div>
+      <div class="filter-group" data-group="company"><span class="filter-label">EMPLOYER</span><button class="filter-chip" data-value="all" aria-pressed="true">All</button>{employers.map((c) => <button class="filter-chip" data-value={c} aria-pressed="false">{c}</button>)}</div>
+    </div>
+    <p class="filter-status" id="filter-status" aria-live="polite"></p>
+    <div class="project-grid">{projects.map((project, i) => <ProjectCard project={project} index={String(i + 1).padStart(2, '0')} />)}</div>
+    <p class="filter-empty" id="filter-empty" hidden>No projects match both filters. Try setting one back to All.</p>
+  </section>
+  <p class="content-note">Some work was completed for employers and is only described at a level that is appropriate to share publicly.</p>
+  <script is:inline>
+    (() => {
+      const state = { discipline: 'all', company: 'all' };
+      const cards = [...document.querySelectorAll('.project-grid .project-card')];
+      const status = document.getElementById('filter-status');
+      const empty = document.getElementById('filter-empty');
+      const apply = () => {
+        let shown = 0;
+        cards.forEach((c) => {
+          const ok = (state.discipline === 'all' || c.dataset.disciplines.split('|').includes(state.discipline))
+                  && (state.company === 'all' || c.dataset.company === state.company);
+          c.hidden = !ok; if (ok) shown++;
+        });
+        status.textContent = `Showing ${shown} of ${cards.length} projects`;
+        empty.hidden = shown > 0;
+      };
+      document.querySelectorAll('.filter-group').forEach((group) => {
+        group.addEventListener('click', (e) => {
+          const btn = e.target.closest('.filter-chip'); if (!btn) return;
+          state[group.dataset.group] = btn.dataset.value;
+          group.querySelectorAll('.filter-chip').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+          apply();
+        });
+      });
+      apply();
+    })();
+  </script>
 </BaseLayout>
