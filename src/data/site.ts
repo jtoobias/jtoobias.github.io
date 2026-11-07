@@ -9,7 +9,9 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/jonathan-tobias-572209101',
   github: 'https://github.com/jtoobias',
   intro:
-    'Thanks for stopping by. I work across embedded electronics, robotics and the software that connects them. If you are hiring, another engineer, or just having a look, you are welcome.',
+    `Thanks for stopping by. I work across embedded electronics, robotics and the software that connects them. 
+    I hope you enjoy reading and discovering some of the projects I have worked on.`,
+    // `If you are hiring, another engineer, or just having a look, you are welcome.`,
   shortIntro:
     'Engineering across electronics, embedded software and robotics.',
   strengths: [
