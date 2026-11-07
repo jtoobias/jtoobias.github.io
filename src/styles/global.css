@@ -14,7 +14,7 @@
 
 .hero:has(.hero-media){align-items:stretch}
 .hero-copy{max-width:none}
-.hero-intro{max-width:40rem}
+.hero-intro{max-width:40rem;white-space:pre-line}
 .hero-media{aspect-ratio:auto;max-height:none;min-height:520px;height:100%}
 .trait-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px;margin-top:32px;max-width:40rem}
 .trait-grid h2{font:10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
