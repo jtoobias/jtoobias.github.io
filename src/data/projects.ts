@@ -271,12 +271,13 @@ export const projects: Project[] = [
         - To dive into the world of STM32 microcontrollers.`
       },
       {
-        type: 'image',
-        src: '/media/personal/CAN-IO-GUI-main-page.jpeg',
-        alt: `A CAN IO project GUI`,
+        type: 'video',
+        src: '/media/personal/can_io_gui-x4.mp4',
+        title: 'CAN IO board User Interface',
         layout: 'side',
         heading: 'CAN IO board User Interface',
-        blurb: `This made configuring and reading the board information significantly more user-friendly.
+        caption: 'This video is speed up x4, and shows some of the functionality of the GUI while communicating to the CAN-IO board.',
+        blurb: `This made configuring, reading the board information, and control of the board IO significantly more user-friendly.
         While still a minimum viable product, it was a fun project to work on and learn from.`
       }
     ]
