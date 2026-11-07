@@ -50,12 +50,12 @@ export const projects: Project[] = [
         heading: 'Raspberry Pi 5 Shield',
         blurb: `Custom Raspberry Pi 5 Shield for cameras, sensors and external systems.
         - It was designed and tested for:
-        - Handling a 24V DC supply, with over and under voltage protection, reverse polarity protection and short circuit protection.
+        - Handling a 24V DC supply, with overvoltage and undervoltage protection, reverse-polarity protection and short-circuit protection.
         - Three camera trigger circuits, using 5V high-side switching.
         - Three PWM channels for lighting control, through external LED drivers.
-        - 2x I2C communication up to 20 meters depending on board rate and sensor power requirements.
+        - 2x I2C communication up to 20 metres, depending on baud rate and sensor power requirements.
         - 2x UART communication.
-        - Switched external sensor power, with short circuit protection 
+        - Switched external sensor power, with short-circuit protection.
         - 2x 5-50V input & 2x 24V fused output channels.`
       },
       {
@@ -64,8 +64,8 @@ export const projects: Project[] = [
         alt: 'A vehicle inside a lit camera inspection rig',
         layout: 'side',
         heading: 'Umbra: The Gate',
-        blurb: `The circuit board + RPI 5 above was the link between the hardware and the main computer vision system.  
-        It was used to track the vehicle through the use of magentometer sensors, trigger cameras at consistent vehicle positions, 
+        blurb: `The circuit board and Raspberry Pi 5 above were the link between the hardware and the main computer vision system.
+        They were used to track the vehicle with magnetometer sensors, trigger the cameras at consistent vehicle positions,
         and turn the lights on and off at the right brightness for the vehicle inspection to work.`
       }
     ]
@@ -79,15 +79,15 @@ export const projects: Project[] = [
     disciplines: ['Robotics', 'Perception & sensors', 'Python', 'CAN bus','ROS'],
     category: 'Robotics',
     year: '2022–2024',
-    summary: `Axis7 was a true robotics startup, 
-    where I learnd a lot and was able to put my skills that I learnt from my masters into practice.
+    summary: `Axis7 was a true robotics startup,
+    where I learned a lot and was able to put the skills from my master's into practice.
     I was able to work on the entire system, from the hardware to the software, and the data collection and analysis.`,
 
-    description: `At Axis7 I worked on various robotics projects, with a couple of main ones being:
-    'Archi-Jnr' control system and our own autonomous broccoli harvester.
-    'Archi-Jnr' was similar to my masters project, by developing a control system for it and designing methods for it to navigate down vinyard rows..
-    The broccoli harvester was a fun, tiring, stressfull and rewarding projects where I was able to work on and design the software system for it.
-    It incorportated many things from my masters but also push my knownledge in computer vision, camera systems, PLC programming, Motor control, and robot kinematics.`,
+    description: `At Axis7 I worked on various robotics projects, with a couple of the main ones being
+    the Archi-Jnr control system and our own autonomous broccoli harvester.
+    Archi-Jnr was similar to my master's project: I developed a control system for it and designed methods for it to navigate down vineyard rows.
+    The broccoli harvester was a fun, tiring, stressful and rewarding project, where I was able to work on and design the software system for it.
+    It incorporated many things from my master's, but also pushed my knowledge in computer vision, camera systems, PLC programming, motor control and robot kinematics.`,
 
     role: 'Robotics software and system integration',
     technologies: ['ROS', 'C++', 'Computer vision', 'Python', 'CAN bus', 'LiDAR', 'RTK-GPS', 'Cameras', 'Behaviour trees', 'Linux'],
@@ -112,8 +112,8 @@ export const projects: Project[] = [
         title: 'Axis7 machines in the field',
         layout: 'below',
         heading: 'Archi-Jnr and Broccoli harvester footage',
-        blurb: `Archi-Jnr can be seen in an autonomous following the vine through the use of a 3D LiDAR. 
-        After Archie-Jnr, the broccoli harvester can be seen on RViz actively detecting and harvesting broccoli, as the machine is pulled by a tractor.`
+        blurb: `Archi-Jnr can be seen autonomously following the vine using a 3D LiDAR.
+        After Archi-Jnr, the broccoli harvester can be seen in RViz actively detecting and harvesting broccoli, as the machine is pulled by a tractor.`
       }
     ]
   },
@@ -147,8 +147,8 @@ export const projects: Project[] = [
         title: 'Biased Informed Rapidly-exploring Random Tree (IRRT*) path planning in RViz',
         layout: 'below',
         heading: 'IRRT* Path planning',
-        caption: 'The video shows the initial development of the biased-IRRT* path planning algorithm re-planning constantly on. ',
-        blurb: 'Biased-IRRT* was one I developed based on other papers as a comparison to more convenstional grid based path planners such as Dijkstra and A*. It showed good promise but during my testing it was the non-optimal solution for large planning problems.'
+        caption: 'The video shows the initial development of the biased-IRRT* path planning algorithm replanning constantly.',
+        blurb: 'Biased-IRRT* was one I developed, based on other papers, as a comparison to more conventional grid-based path planners such as Dijkstra and A*. It showed good promise, but during my testing it was not the optimal solution for large planning problems.'
       },
       {
         type: 'video',
@@ -156,8 +156,8 @@ export const projects: Project[] = [
         title: 'Mapping a route by driving the golf cart',
         layout: 'below',
         heading: 'Mapping',
-        caption: 'Manual driving of the golf car to map the vineyard area.',
-      blurb: 'This was the initial mapping of the vineyard. I teseted multiple mapping packages (GMapping, Cartographer, and RTAB-Map), with Gmapping being shown and the most reliable during my testing on the vineyard. The simultaneous localisation and mapping was performed by manually driving the golf cart around the vineyard, using the 3D LiDAR, combined localisation sensors such as RTK-GPS, and wheel encoders. The map was then used to test the autonomous driving capabilites of the golf cart.'
+        caption: 'Manual driving of the golf cart to map the vineyard area.',
+      blurb: 'This was the initial mapping of the vineyard. I tested multiple mapping packages (GMapping, Cartographer and RTAB-Map), with GMapping being shown and the most reliable during my testing in the vineyard. The simultaneous localisation and mapping was performed by manually driving the golf cart around the vineyard, using the 3D LiDAR, combined with localisation sensors such as RTK-GPS, and wheel encoders. The map was then used to test the autonomous driving capabilities of the golf cart.'
       },
       {
         type: 'video',
@@ -165,8 +165,8 @@ export const projects: Project[] = [
         title: 'The golf cart driving autonomously',
         layout: 'below',
         heading: 'Autonomous driving',
-        caption: 'Golf cart is driving autonomously, in a controlled environment.',
-        blurb: 'This was a demonstration of how I converted a golf cart into an autonomous vehicle. This was done by implementing an A* path planner, Time and Elastic Band (TEB) local planner, while primarily using a 3D LiDAR and 3D ultrasonic sensor; all built around the ROS framework. More information can be found in my Master\'s thesis.'
+        caption: 'The golf cart is driving autonomously, in a controlled environment.',
+        blurb: 'This was a demonstration of how I converted a golf cart into an autonomous vehicle. This was done by implementing an A* path planner and a Timed Elastic Band (TEB) local planner, while primarily using a 3D LiDAR and a 3D ultrasonic sensor, all built around the ROS framework. More information can be found in my master\'s thesis.'
       }
     ]
   },
@@ -177,15 +177,15 @@ export const projects: Project[] = [
     disciplines: ['Electronics', 'C/C++'],
     category: 'Electronics',
     year: '2017–2020',
-    summary: `Vast range of circuit board and firmware development for projects in vehicle monitor, enivornment research device, and agricultural focus products. 
+    summary: `A wide range of circuit board and firmware development for a vehicle monitor, an environment research device, and agriculture-focused products.
     A few examples are shown here.`,
-    description: `During my time at Bentech I was able to work on a vast range of projects with a few shown below. 
-    I am very proud of all the work I did at Bentech, with the two main ones being the autosampler and the heat ranger sensor montior.
-    The autosampler tested my ability to make a nice user friendly product while being precise, reliable, upgradable and long lasting. 
-    When I left the product was going through its final testing and ready to be sold to other researchers.
-    The heat ranger sensor was a small IoT style PCB. It was able to run on a single lipo battery, monitor temperature and humidity while reporting this information of hundreds of meters back to the base heat ranger.
-    All of the projects I worked on for clients were upgradeable and largely over the air (OTA) using WiFi or LoRa.`,
-    role: 'Electronic Engineering and Embedded Firmware Seveloper',
+    description: `During my time at Bentech I was able to work on a wide range of projects, with a few shown below.
+    I am very proud of all the work I did at Bentech, with the two main ones being the autosampler and the Heat Ranger sensor monitor.
+    The autosampler tested my ability to make a user-friendly product while keeping it precise, reliable, upgradeable and long-lasting.
+    When I left, the product was going through its final testing and was ready to be sold to other researchers.
+    The Heat Ranger sensor was a small IoT-style PCB. It was able to run on a single LiPo battery, monitor temperature and humidity, and report this information over hundreds of metres back to the base Heat Ranger.
+    All of the projects I worked on for clients were upgradeable, largely over the air (OTA) using WiFi or LoRa.`,
+    role: 'Electronic engineering and embedded firmware developer',
     technologies: ['PCB design', 'Embedded C', 'ESP32', 'ATxmega', 'LoRa'],
     theme: 'bentech',
     // status: '',
@@ -201,7 +201,7 @@ export const projects: Project[] = [
         layout: 'side',
         heading: 'Autosampler',
         blurb: `This product was able to run on a pack of AA batteries, 
-        run for up to a year without intervention in harsh mineral rich cave environments, 
+        run for up to a year without intervention in harsh, mineral-rich cave environments, 
         while sampling cave water on accurate time intervals. 
         This product was wanted by and developed for researchers from the University of Waikato.`
       },
@@ -211,10 +211,10 @@ export const projects: Project[] = [
         alt: '4-layer PCB for an autosampler. Showing motor drivers, sensors, ESP32, power management and RTC',
         layout: 'side',
         heading: 'Autosampler PCB',
-        blurb: `The PCB was designed to be ultra low power while still able to control motors,
-        read sensor temperature and humidity sensors, detect water overflow and when required
-        communicate data using a web interface using the ESP32 as an access point.
-        Motors used in this project were stepper motors (table and ganntry) and a linear actuator (for the sampling needle).`
+        blurb: `The PCB was designed to be ultra-low-power while still able to control motors,
+        read temperature and humidity sensors, detect water overflow and, when required,
+        communicate data through a web interface, using the ESP32 as an access point.
+        The motors used in this project were stepper motors (table and gantry) and a linear actuator (for the sampling needle).`
       },
       {
         type: 'image',
@@ -242,11 +242,11 @@ export const projects: Project[] = [
     category: 'Robotics / Embedded',
     year: 'Ongoing',
     summary: 'A personal CAN bus opto-coupled input and output board for user and switch interfaces.',
-    description: `A personal PCB for user interface and sensor acquisition over CAN, built around an STM32.
-    The CANopen system also incorporates a custom made Objecy Dictionary (based on standard CANopen dictionaries)
-    to allow for configuration of packages (PDOs, NMT, SDOs, etc). The board is still in progress and recently
-    changed to a two PCB design for a more compact solution. 
-    A python GUI was also created to allow for easy configuration and monitoring of the board.`,
+    description: `A personal PCB for user interfaces and sensor acquisition over CAN, built around an STM32.
+    The CANopen system also incorporates a custom-made object dictionary (based on standard CANopen dictionaries)
+    to allow configuration of messages (PDOs, NMT, SDOs and so on). The board is still in progress and was recently
+    changed to a two-PCB design for a more compact solution.
+    A Python GUI was also created to allow easy configuration and monitoring of the board.`,
     role: 'Personal project',
     technologies: ['STM32', 'Embedded C', 'CAN bus', 'PCB design', 'Python'],
     theme: 'personal',
@@ -264,7 +264,7 @@ export const projects: Project[] = [
         layout: 'side',
         heading: 'CAN IO board',
         blurb: `This is a CANopen opto-isolated IO board, built around an STM32. This board was designed for two main purposes:
-        - To try develop a CANopen IO device that could be used in robotics systems while being afforabled.
+        - To develop a CANopen IO device that could be used in robotics systems while remaining affordable.
         - To dive into the world of STM32 microcontrollers.`
       },
       {
@@ -273,8 +273,8 @@ export const projects: Project[] = [
         alt: `A CAN IO project GUI`,
         layout: 'side',
         heading: 'CAN IO board User Interface',
-        blurb: `This made configuring and reading the board information significantly more user friendly.
-         While still being a minimum viable product, it was a fun project to work on and learn from.`
+        blurb: `This made configuring and reading the board information significantly more user-friendly.
+        While still a minimum viable product, it was a fun project to work on and learn from.`
       }
     ]
   },

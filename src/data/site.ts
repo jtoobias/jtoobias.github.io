@@ -22,7 +22,7 @@ export const site = {
   weaknesses: [
     'One last improvement... and then five more',
     'Prone to going down interesting technical rabbit holes',
-    'Enjoy an engineering conversation a bit too much, however far-fetched the solution'
+    'Enjoy an engineering conversation a bit too much, however far-fetched the solution is'
   ],
   // Homepage hero media: a portrait photo or a short highlight video. Hidden on the live site until the REPLACE value is changed.
   heroMedia: { type: 'image', src: '/media/home/cover_photo_mauri.jpeg', alt: 'Portrait of Jonathan Tobias' } as MediaItem,
@@ -46,8 +46,8 @@ export const site = {
       summary:
         'Developing and integrating embedded hardware and software for camera and communication systems.',
       points: [
-        'Designed custom Raspberry Pi 5 PCB shield to interface with external systems and sensors.',
-        'Designed custom PCB for sensors and to increase communication length.',
+        'Designed a custom Raspberry Pi 5 PCB shield to interface with external systems and sensors.',
+        'Designed a custom PCB for sensors and to increase communication length.',
         'Developed Python-based product features and supported R&D investigations.',
         'Built a self-test jig to support hardware validation and production testing.',
         'Integrated camera systems and investigated hardware/software issues in production.'
@@ -58,14 +58,14 @@ export const site = {
       company: 'Axis7',
       role: 'Robotics Engineer',
       period: 'Feb 2022 — Jun 2024',
-      location: 'Hamilton,New Zealand',
+      location: 'Hamilton, New Zealand',
       theme: 'axis7',
       summary:
         'Worked on autonomous agricultural machinery, including a robotic broccoli harvesting platform.',
       points: [
         'Developed behaviour-tree-based control for autonomous and remotely operated agricultural vehicles.',
         'Integrated sensors including RTK-GPS, IMUs, 3D LiDAR, wheel encoders and time-of-flight (ToF) cameras.',
-        'Communication with sensors and drivers using CAN bus and Ethernet-IP protocols.',
+        'Communicated with sensors and drivers using CAN bus and EtherNet/IP.',
         'Developed YOLO computer vision models for object detection and tracking.'
       ]
     },
@@ -74,14 +74,14 @@ export const site = {
       company: 'Bentech',
       role: 'Electronic Engineer',
       period: 'Nov 2017 — Nov 2020',
-      location: 'Hamilton,New Zealand',
+      location: 'Hamilton, New Zealand',
       theme: 'bentech',
       summary:
-        'Developed custom solutions, involving PCB design, CAD design and embedded C for a wide range of hardware projects for various clients.',
+        'Developed custom solutions involving PCB design, CAD and embedded C for a wide range of hardware projects for various clients.',
       points: [
-        'Designed and develeop custom electronic hardware for clients projects.',
-        'Developed embedded C firmware and custom bootloaders for microcontroller-based, allowing for over-the-air updates.',
-        'Projects involved low power operation, motor control, sensors, lighting and various communication protocols.',
+        'Designed and developed custom electronic hardware for clients\' projects.',
+        'Developed embedded C firmware and custom bootloaders for microcontroller-based systems, allowing for over-the-air updates.',
+        'Projects involved low-power operation, motor control, sensors, lighting and various communication protocols.',
         'LoRa, WiFi, CAN, RS232, RS485, I2C, SPI, USB and SD-CARD storage, Real Time Clock (RTC), sensor acquisition and more.'
       ]
     }
