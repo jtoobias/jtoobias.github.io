@@ -65,7 +65,7 @@ export const projects: Project[] = [
         layout: 'side',
         heading: 'Umbra: The Gate',
         blurb: `The circuit board and Raspberry Pi 5 above were the link between the hardware and the main computer vision system.
-        They were used to track the vehicle with magnetometer sensors, trigger the cameras at consistent vehicle positions,
+        They were used to track the vehicle through the use of magnetometer sensors, trigger cameras at consistent vehicle positions,
         and turn the lights on and off at the right brightness for the vehicle inspection to work.`
       }
     ]
@@ -80,14 +80,14 @@ export const projects: Project[] = [
     category: 'Robotics',
     year: '2022–2024',
     summary: `Axis7 was a true robotics startup,
-    where I learned a lot and was able to put the skills from my master's into practice.
+    where I learned a lot and was able to put my skills that I learned from my master's into practice.
     I was able to work on the entire system, from the hardware to the software, and the data collection and analysis.`,
 
-    description: `At Axis7 I worked on various robotics projects, with a couple of the main ones being
+    description: `At Axis7 I worked on various robotics projects, with a couple of main ones being
     the Archi-Jnr control system and our own autonomous broccoli harvester.
-    Archi-Jnr was similar to my master's project: I developed a control system for it and designed methods for it to navigate down vineyard rows.
-    The broccoli harvester was a fun, tiring, stressful and rewarding project, where I was able to work on and design the software system for it.
-    It incorporated many things from my master's, but also pushed my knowledge in computer vision, camera systems, PLC programming, motor control and robot kinematics.`,
+    Archi-Jnr was similar to my master's project, by developing a control system for it and designing methods for it to navigate down vineyard rows.
+    The broccoli harvester was a fun, tiring, stressful and rewarding project where I was able to work on and design the software system for it.
+    It incorporated many things from my master's but also pushed my knowledge in computer vision, camera systems, PLC programming, motor control, and robot kinematics.`,
 
     role: 'Robotics software and system integration',
     technologies: ['ROS', 'C++', 'Computer vision', 'Python', 'CAN bus', 'LiDAR', 'RTK-GPS', 'Cameras', 'Behaviour trees', 'Linux'],
@@ -148,7 +148,7 @@ export const projects: Project[] = [
         layout: 'below',
         heading: 'IRRT* Path planning',
         caption: 'The video shows the initial development of the biased-IRRT* path planning algorithm replanning constantly.',
-        blurb: 'Biased-IRRT* was one I developed, based on other papers, as a comparison to more conventional grid-based path planners such as Dijkstra and A*. It showed good promise, but during my testing it was not the optimal solution for large planning problems.'
+        blurb: 'Biased-IRRT* was one I developed based on other papers as a comparison to more conventional grid-based path planners such as Dijkstra and A*. It showed good promise but during my testing it was the non-optimal solution for large planning problems.'
       },
       {
         type: 'video',
@@ -177,14 +177,14 @@ export const projects: Project[] = [
     disciplines: ['Electronics', 'C/C++'],
     category: 'Electronics',
     year: '2017–2020',
-    summary: `A wide range of circuit board and firmware development for a vehicle monitor, an environment research device, and agriculture-focused products.
+    summary: `Vast range of circuit board and firmware development for projects in vehicle monitor, an environment research device, and agricultural focus products.
     A few examples are shown here.`,
-    description: `During my time at Bentech I was able to work on a wide range of projects, with a few shown below.
+    description: `    During my time at Bentech I was able to work on a vast range of projects, with a few shown below.
     I am very proud of all the work I did at Bentech, with the two main ones being the autosampler and the Heat Ranger sensor monitor.
-    The autosampler tested my ability to make a user-friendly product while keeping it precise, reliable, upgradeable and long-lasting.
-    When I left, the product was going through its final testing and was ready to be sold to other researchers.
-    The Heat Ranger sensor was a small IoT-style PCB. It was able to run on a single LiPo battery, monitor temperature and humidity, and report this information over hundreds of metres back to the base Heat Ranger.
-    All of the projects I worked on for clients were upgradeable, largely over the air (OTA) using WiFi or LoRa.`,
+    The autosampler tested my ability to make a nice user-friendly product while being precise, reliable, upgradeable and long-lasting.
+    When I left, the product was going through its final testing and ready to be sold to other researchers.
+    The Heat Ranger sensor was a small IoT-style PCB. It was able to run on a single LiPo battery, monitor temperature and humidity while reporting this information over hundreds of meters back to the base Heat Ranger.
+    All of the projects I worked on for clients were upgradeable and largely over the air (OTA) using WiFi or LoRa.`,
     role: 'Electronic engineering and embedded firmware developer',
     technologies: ['PCB design', 'Embedded C', 'ESP32', 'ATxmega', 'LoRa'],
     theme: 'bentech',
@@ -242,11 +242,11 @@ export const projects: Project[] = [
     category: 'Robotics / Embedded',
     year: 'Ongoing',
     summary: 'A personal CAN bus opto-coupled input and output board for user and switch interfaces.',
-    description: `A personal PCB for user interfaces and sensor acquisition over CAN, built around an STM32.
+    description: `A personal PCB for user interface and sensor acquisition over CAN, built around an STM32.
     The CANopen system also incorporates a custom-made object dictionary (based on standard CANopen dictionaries)
-    to allow configuration of messages (PDOs, NMT, SDOs and so on). The board is still in progress and was recently
+    to allow for configuration of packages (PDOs, NMT, SDOs, etc). The board is still in progress and recently
     changed to a two-PCB design for a more compact solution.
-    A Python GUI was also created to allow easy configuration and monitoring of the board.`,
+    A Python GUI was also created to allow for easy configuration and monitoring of the board.`,
     role: 'Personal project',
     technologies: ['STM32', 'Embedded C', 'CAN bus', 'PCB design', 'Python'],
     theme: 'personal',
@@ -264,7 +264,7 @@ export const projects: Project[] = [
         layout: 'side',
         heading: 'CAN IO board',
         blurb: `This is a CANopen opto-isolated IO board, built around an STM32. This board was designed for two main purposes:
-        - To develop a CANopen IO device that could be used in robotics systems while remaining affordable.
+        - To try to develop a CANopen IO device that could be used in robotics systems while being affordable.
         - To dive into the world of STM32 microcontrollers.`
       },
       {
