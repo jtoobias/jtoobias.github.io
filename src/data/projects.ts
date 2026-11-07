@@ -146,9 +146,12 @@ export const projects: Project[] = [
         src: '/media/masters/IRRT*-rviz.mp4',
         title: 'Biased Informed Rapidly-exploring Random Tree (IRRT*) path planning in RViz',
         layout: 'below',
-        heading: 'IRRT* Path planning',
-        caption: 'The video shows the initial development of the biased-IRRT* path planning algorithm replanning constantly.',
-        blurb: 'Biased-IRRT* was one I developed based on other papers as a comparison to more conventional grid-based path planners such as Dijkstra and A*. It showed good promise but during my testing it was the non-optimal solution for large planning problems.'
+        heading: 'Biased Informed Rapidly-exploring Random Tree (IRRT*)',
+        caption: 'The video shows the initial development of the biased-IRRT* path planning algorithm replanning constantly in RViz.',
+        blurb: `Biased-IRRT* was one I developed based on other papers as a comparison to 
+        more conventional grid-based path planners such as Dijkstra and A*.
+        It showed good promise but during my testing it was the 
+        non-optimal solution for large 2D planning problems.`
       },
       {
         type: 'video',
