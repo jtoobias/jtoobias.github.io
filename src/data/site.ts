@@ -9,21 +9,20 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/jonathan-tobias-572209101',
   github: 'https://github.com/jtoobias',
   intro:
-    `Thanks for stopping by. I work across embedded electronics, robotics and the software that connects them. 
+    `Thank you for stopping by. I work across embedded electronics, robotics and the software that connects them. 
     I hope you enjoy reading and discovering some of the projects I have worked on.`,
     // `If you are hiring, another engineer, or just having a look, you are welcome.`,
   shortIntro:
     'Engineering across electronics, embedded software and robotics.',
   strengths: [
-  'Enjoy bringing new ideas to life and tackling unfamiliar challenges',
-  'Like experimenting, investigating and hands-on problem-solving',
-  'Always curious about how things work and how they could be improved',
-  'Interested in exploring new technologies, from motors and sensors to cameras'
+    'Take pride in bringing ideas to life and persevering to see them through.',
+    'Enjoy experimenting, investigating, and hands-on problem-solving',
+    'Always curious about learning and using new tools, in hardware and in software'
   ],
   weaknesses: [
-    'One last improvement... (and then five more)',
+    'One last improvement... and then five more',
     'Prone to going down interesting technical rabbit holes',
-    'Never short of another idea to explore'
+    'Enjoy an engineering conversation a bit too much, however far-fetched the solution'
   ],
   // Homepage hero media: a portrait photo or a short highlight video. Hidden on the live site until the REPLACE value is changed.
   heroMedia: { type: 'image', src: '/media/home/cover_photo_mauri.jpeg', alt: 'Portrait of Jonathan Tobias' } as MediaItem,
