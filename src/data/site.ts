@@ -10,10 +10,7 @@ export const site = {
   github: 'https://github.com/jtoobias',
   intro:
     `Here you will find highlights from my engineering journey, spanning hardware, software, and the spaces where they intersect.
-    Whether you are hiring, another engineer, or just having a look, I hope you enjoy reading and discovering.`
-    // I work across 
-    ,
-    // `If you are hiring, another engineer, or just having a look, you are welcome.`,
+    Whether you are hiring, another engineer, or just having a look, I hope you enjoy reading and discovering.`,
   shortIntro:
     'Engineering across electronics, embedded software and robotics.',
   strengths: [
@@ -24,8 +21,11 @@ export const site = {
   weaknesses: [
     'One last improvement... and then five more',
     'Prone to going down interesting technical rabbit holes',
-    'Enjoy an engineering conversation a bit too much, however far-fetched the solution is'
+    'A tendency to enjoying engineering conversations a bit too much, no matter how far-fetched the solution.'
   ],
+  // Homepage copies of the lists above. Leave both empty to hide the block. Paste the lists back here to show them on the home page again.
+  homeStrengths: [] as string[],
+  homeWeaknesses: [] as string[],
   // Homepage hero media: a portrait photo or a short highlight video. Hidden on the live site until the REPLACE value is changed.
   heroMedia: { type: 'image', src: '/media/home/cover_photo_mauri.jpeg', alt: 'Portrait of Jonathan Tobias' } as MediaItem,
   availability: 'Open to the right engineering opportunity',
