@@ -6,6 +6,11 @@ export function getStaticPaths() {
   return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
 }
 const { project } = Astro.props;
+const overviewLines = project.description
+  .trim()
+  .split(/\n\s*\n/)
+  .map((block) => block.replace(/\s*\n\s*/g, ' ').trim())
+  .filter(Boolean);
 ---
 <BaseLayout title={project.title} description={project.summary}>
   <article class={`case-study ${project.theme}`}>
@@ -18,7 +23,7 @@ const { project } = Astro.props;
         {project.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} <span>↗</span></a>)}
       </div>
     )}
-    <div class="case-columns"><div><div class="section-kicker">MY ROLE</div><p>{project.role}</p><div class="section-kicker case-subhead">OVERVIEW</div><p>{project.description}</p></div><aside><div class="section-kicker">TECHNOLOGIES</div><div class="tag-row case-tags">{project.technologies.map((tag) => <span>{tag}</span>)}</div><div class="section-kicker case-subhead">KEY AREAS</div><ul>{project.highlights.map((item) => <li>{item}</li>)}</ul>{project.status && <div class="project-status">{project.status}</div>}</aside></div>
+    <div class="case-columns"><div><div class="section-kicker">MY ROLE</div><p>{project.role}</p><div class="section-kicker case-subhead">OVERVIEW</div><p>{overviewLines.map((line, i) => <>{i > 0 && <br />}{line}</>)}</p></div><aside><div class="section-kicker">TECHNOLOGIES</div><div class="tag-row case-tags">{project.technologies.map((tag) => <span>{tag}</span>)}</div><div class="section-kicker case-subhead">KEY AREAS</div><ul>{project.highlights.map((item) => <li>{item}</li>)}</ul>{project.status && <div class="project-status">{project.status}</div>}</aside></div>
     {!(project.media && project.media.length) && (
       <div class="case-visual">
         {project.cover

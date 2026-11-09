@@ -30,8 +30,9 @@ export const projects: Project[] = [
     category: 'Embedded hardware',
     year: '2025–2026',
     summary: 'Custom PCB shield connecting a Raspberry Pi 5 to external systems and sensors for Lensor Gates.',
-    description: `Custom PCB shield connecting a Raspberry Pi 5 to multiple cameras, lighting drivers and sensors for Lensor Gates.
-    The PCB was designed to be robust, reliable and to EU standards.`,
+    description: `Custom Printed Circuit Board (PCB) shield connecting a Raspberry Pi 5 to multiple (10-16) cameras, lighting drivers and sensors for Lensor Gates.
+    The PCB was designed to be robust, reliable and to EU standard. This board needed to be up to theses standards with the Lensor Gates being all around the Netherlands, with the hope to expand to other countries.
+    My role at Lensor allow me to take ownership of custom hardware research and develeopment, while also being able to work on the software that worked directly with this hardware.`,
     role: 'Hardware design and integration',
     technologies: ['PCB design', 'Embedded Linux', 'Raspberry Pi 5', 'Python', 'Cameras'],
     theme: 'lensor',
@@ -84,13 +85,17 @@ export const projects: Project[] = [
     I was able to work on the entire system, from the hardware to the software, and the data collection and analysis.`,
 
     description: `At Axis7 I worked on various robotics projects, with a couple of main ones being
-    the Archi-Jnr control system and our own autonomous broccoli harvester.
+    the Archi-Jnr control system and our own autonomous broccoli harvester. With these projects I owned the whole software stack, from the computer vision models, object tracking,
+    state behaviour,and motor control.
+
     Archi-Jnr was similar to my master's project, by developing a control system for it and designing methods for it to navigate down vineyard rows.
     The broccoli harvester was a fun, tiring, stressful and rewarding project where I was able to work on and design the software system for it.
-    It incorporated many things from my master's but also pushed my knowledge in computer vision, camera systems, PLC programming, motor control, and robot kinematics.`,
+    It incorporated many things from my master's but also pushed my knowledge further into computer vision, camera systems, PLC programming, motor control, and robot kinematics.
+    
+    `,
 
     role: 'Robotics software and system integration',
-    technologies: ['ROS', 'C++', 'Computer vision', 'Python', 'CAN bus', 'LiDAR', 'RTK-GPS', 'Cameras', 'Behaviour trees', 'Linux'],
+    technologies: ['ROS', 'C++', 'Computer vision', 'Optical flow', 'Python', 'CAN bus', 'LiDAR', 'RTK-GPS', '2/3D Cameras', 'Behaviour trees', 'Linux', 'PLC', 'Wheel encoders'],
     theme: 'axis7',
     // status: 'Details to be expanded',
     highlights: ['Behaviour-tree vehicle control', 'Multi-sensor integration', 'Autonomous agricultural machinery'],
@@ -104,7 +109,7 @@ export const projects: Project[] = [
         alt: 'Night testing and data collection of the broccoli harvesting platform',
         layout: 'side',
         heading: 'Broccoli harvester',
-        blurb: 'Night testing and data collection of the broccoli harvesting platform.'
+        blurb: 'Night testing and data collection of the first broccoli harvesting prototype platform.'
       },
       {
         type: 'video',
@@ -113,7 +118,7 @@ export const projects: Project[] = [
         layout: 'below',
         heading: 'Archi-Jnr and Broccoli harvester footage',
         blurb: `Archi-Jnr can be seen autonomously following the vine using a 3D LiDAR.
-        After Archi-Jnr, the broccoli harvester can be seen in RViz actively detecting and harvesting broccoli, as the machine is pulled by a tractor.`
+        After Archi-Jnr, the broccoli harvester can be seen in RViz actively detecting and harvesting broccoli, as the machine is pulled by a tractor. `
       }
     ]
   },
